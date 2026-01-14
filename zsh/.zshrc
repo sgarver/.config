@@ -2,7 +2,7 @@
 
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
-export EDITOR="nvim"
+export EDITOR="helix"
 export SUDO_EDITOR="$EDITOR"
 export PGHOST="/var/run/postgresql"
 
@@ -28,3 +28,8 @@ export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$HOME/.local/share/omarchy/bin:
 alias hx=helix
 alias ls='ls --color=auto'
 alias l='ls -lah'
+
+export PATH="$PATH:$HOME/.local/bin"
+export OLLAMA_MODEL="phi3"
+
+. "$HOME/.local/share/../bin/env"
