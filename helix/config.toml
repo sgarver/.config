@@ -1,0 +1,9 @@
+
+theme = "tomorrow_dark"
+
+[keys.normal]
+C-g = [":new", ":insert-output lazygit", ":buffer-close!", ":redraw"]
+space.B = ":echo %sh{git blame -L %{cursor_line},+1 %{buffer_name}}"
+space.P = ":sh dirname %% | wl-copy && echo 'PWD copied to clipboard'"
+space.R = ":config-reload"
+

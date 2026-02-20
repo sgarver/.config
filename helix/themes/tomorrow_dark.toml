@@ -1,0 +1,84 @@
+
+# Tomorrow Dark (Tomorrow Night) — Helix theme
+# Palette:
+# bg0  #1d1f21
+# bg1  #282a2e
+# sel  #373b41
+# fg0  #c5c8c6
+# fg1  #e0e0e0
+# cmnt #969896
+# red  #cc6666
+# org  #de935f
+# ylw  #f0c674
+# grn  #b5bd68
+# cya  #8abeb7
+# blu  #81a2be
+# mag  #b294bb
+
+"ui.background" = { bg = "#1d1f21" }
+"ui.text" = { fg = "#c5c8c6" }
+"ui.text.inactive" = { fg = "#969896" }
+
+"ui.cursor" = { fg = "#1d1f21", bg = "#c5c8c6" }
+"ui.cursor.primary" = { fg = "#1d1f21", bg = "#c5c8c6" }
+"ui.cursorline" = { bg = "#282a2e" }
+
+"ui.selection" = { bg = "#373b41" }
+"ui.selection.primary" = { bg = "#373b41" }
+
+"ui.linenr" = { fg = "#969896" }
+"ui.linenr.selected" = { fg = "#c5c8c6" }
+
+"ui.statusline" = { fg = "#c5c8c6", bg = "#282a2e" }
+"ui.statusline.inactive" = { fg = "#969896", bg = "#1d1f21" }
+
+"ui.popup" = { fg = "#c5c8c6", bg = "#1d1f21" }
+"ui.window" = { fg = "#282a2e" }
+"ui.help" = { fg = "#c5c8c6", bg = "#1d1f21" }
+"ui.menu" = { fg = "#c5c8c6", bg = "#1d1f21" }
+"ui.menu.selected" = { fg = "#1d1f21", bg = "#81a2be" }
+"ui.virtual" = { fg = "#969896" }
+
+"diagnostic.error" = { fg = "#cc6666" }
+"diagnostic.warn"  = { fg = "#f0c674" }
+"diagnostic.info"  = { fg = "#81a2be" }
+"diagnostic.hint"  = { fg = "#8abeb7" }
+
+"error"   = { fg = "#cc6666" }
+"warning" = { fg = "#f0c674" }
+"info"    = { fg = "#81a2be" }
+"hint"    = { fg = "#8abeb7" }
+
+# Syntax
+"comment" = { fg = "#969896", modifiers = ["italic"] }
+"string" = { fg = "#b5bd68" }
+"constant" = { fg = "#de935f" }
+"number" = { fg = "#de935f" }
+"function" = { fg = "#81a2be" }
+"keyword" = { fg = "#b294bb" }
+"operator" = { fg = "#c5c8c6" }
+"type" = { fg = "#f0c674" }
+"variable" = { fg = "#c5c8c6" }
+"punctuation" = { fg = "#c5c8c6" }
+
+# Markup (markdown, etc.)
+"markup.heading" = { fg = "#81a2be", modifiers = ["bold"] }
+"markup.bold" = { modifiers = ["bold"] }
+"markup.italic" = { modifiers = ["italic"] }
+"markup.link.url" = { fg = "#81a2be", modifiers = ["underlined"] }
+"markup.quote" = { fg = "#969896" }
+
+[palette]
+bg0 = "#1d1f21"
+bg1 = "#282a2e"
+sel = "#373b41"
+fg0 = "#c5c8c6"
+fg1 = "#e0e0e0"
+cmnt = "#969896"
+red = "#cc6666"
+org = "#de935f"
+ylw = "#f0c674"
+grn = "#b5bd68"
+cya = "#8abeb7"
+blu = "#81a2be"
+mag = "#b294bb"
