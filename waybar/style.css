@@ -1,0 +1,116 @@
+/* Sophisticated Grayscale Theme - Hardcoded Hex Values */
+
+* {
+  font-family: "Fira Sans Semibold", "Font Awesome 6 Free", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Main window */
+window#waybar {
+  background-color: #0f1117;
+  font-size: 16px;
+  border-radius: 0px;
+  margin: 0px;
+  padding: 0;
+}
+
+
+#workspaces button,
+#workspaces button:hover {
+  padding: 0 16px;
+  margin: 4px;
+  border: 1 solid dimgray;
+  border-radius: 0;
+  background: transparent;
+  color: dimgray;
+  box-shadow: none;
+  text-shadow: none;
+  font-weight: normal;
+}
+
+#workspaces button:hover,
+#workspaces button.focused {
+  color: #756482;
+  border: 1 solid #756482;
+}
+
+/* Penguin icon - leftmost */
+#custom-appmenu {
+  font-size: 24px;
+  background-color: #1a1a1a;
+  color: #756482;
+  padding: 0px 12px;
+  font-family: "JetBrainsMono Nerd Font", "MesloLGS Nerd Font", sans-serif;
+}
+
+/* Clock - rightmost */
+#clock {
+  font-size: 14px;
+  background-color: #1a1a1a;
+  color: dimgray;
+  border-radius: 0px;
+  padding: 0px 8px;
+}
+
+/* Active window title */
+#window {
+  font-size: 14px;
+  font-weight: 800;
+  color: gray;
+  border-radius: 0px;
+  padding: 4px 12px;
+  background-color: #0f1117;
+}
+
+/* Exit button */
+#custom-exit {
+  background-color: #756482;
+  font-size: 14px;
+  font-weight: 800;
+  color: #1a1a1a;
+  padding: 0px 6px;
+  margin: 2px 2px 2px 0;
+}
+
+/* All system info modules */
+#backlight,
+#pulseaudio,
+#network,
+#bluetooth,
+#battery,
+#tray,
+#custom-updates,
+#custom-notification {
+  background-color: #1a1a1a;
+  font-size: 14px;
+  font-weight: 800;
+  color: dimgray;
+  border-radius: 0px;
+  padding: 4px 10px;
+}
+
+/* Tooltips */
+.tooltip {
+  border-radius: 12px;
+  background-color: #1a1a1a;
+  color: dimgray;
+  padding: 4px 8px;
+  border: 1px solid #888888;
+}
+
+/* Taskbar */
+#taskbar {
+  background-color: #1a1a1a;
+  margin: 0px;
+  border-radius: 0px;
+  font-weight: normal;
+}
+
+#bluetooth {
+  color: dimgray;
+}
+
+#bluetooth.on,
+#bluetooth.connected {
+  color: #756482;
+}
+

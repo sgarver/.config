@@ -26,48 +26,48 @@ multiplier = 3
 [colors]
 draw_bold_text_with_bright_colors = true
 
-
 # Emperor (black-metal-theme-neovim)
 # Pure black terminal variant
+# Comments describe the semantic role from the Neovim theme.
+# inspiration: https://github.com/metalelf0/black-metal-theme-neovim
 
 [colors.primary]
-background = "#000000"
-foreground = "#c1c1c1"
+background = "#000000"  # true black background
+foreground = "#c1c1c1"  # main foreground (text)
 
 [colors.cursor]
-text   = "#000000"
-cursor = "#c1c1c1"
+text   = "#000000"      # cursor text (inverted)
+cursor = "#c1c1c1"      # cursor block color
 
 [colors.selection]
-text       = "#c1c1c1"
-background = "#333333"
+text       = "#c1c1c1"  # selected text
+background = "#333333"  # selection background (soft dark gray)
 
 # -------------------
-# ANSI Normal
+# ANSI Normal Colors
 # -------------------
 [colors.normal]
-black   = "#111111"
-red     = "#5f8787"
-green   = "#c1c1c1"
-yellow  = "#888888"
-blue    = "#aaaaaa"
-magenta = "#999999"
-cyan    = "#756482"
-white   = "#c1c1c1"
+black   = "#111111"  # terminal black (near-black)
+red     = "#5f8787"  # diag_red (muted teal)
+green   = "#c1c1c1"  # property (light gray)
+yellow  = "#888888"  # function (mid gray)
+blue    = "#aaaaaa"  # constant (soft light gray)
+magenta = "#999999"  # keyword (desaturated gray)
+cyan    = "#756482"  # string (muted violet)
+white   = "#c1c1c1"  # default foreground
 
 # -------------------
-# ANSI Bright
+# ANSI Bright Colors
 # -------------------
 [colors.bright]
-black   = "#505050"
-red     = "#5f8787"
-green   = "#c1c1c1"
-yellow  = "#888888"
-blue    = "#aaaaaa"
-magenta = "#A8A1DE"
-cyan    = "#756482"
-white   = "#ffffff"
-
+black   = "#505050"  # comment (bright gray)
+red     = "#5f8787"  # same as normal red
+green   = "#c1c1c1"  # same as normal green
+yellow  = "#888888"  # same as normal yellow
+blue    = "#aaaaaa"  # same as normal blue
+magenta = "#A8A1DE"  # type (lavender accent)
+cyan    = "#756482"  # string accent
+white   = "#ffffff"  # pure white (maximum contrast)
 
 #[colors.primary]
 ##background = "#1d1f21"

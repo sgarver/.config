@@ -31,6 +31,14 @@
     "screenkey.nvim": {
       "rev": "fd321966b41d111eed0488b5a3c2d2f8159e1158",
       "src": "https://github.com/NStefan002/screenkey.nvim"
+    },
+    "vim-gitgutter": {
+      "rev": "0acb772e76064cc406664ab595b58b3fac76488a",
+      "src": "https://github.com/airblade/vim-gitgutter"
+    },
+    "which-key.nvim": {
+      "rev": "3aab2147e74890957785941f0c1ad87d0a44c15a",
+      "src": "https://github.com/folke/which-key.nvim"
     }
   }
 }

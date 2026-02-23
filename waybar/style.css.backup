@@ -1,0 +1,155 @@
+/* Waybar CSS with CSS Variables */
+:root {
+  /* Teal accent color scheme - #714E36 */
+  --accent-color: #bb7955;
+  --accent-bg-color: #bb7955;
+  --accent-text-color: #0f1117;
+  --accent-hover-color: #d3c59d;
+  --accent-border-color: #bb7955;
+  
+  /* Background colors */
+  --bg-primary: #0f1117;
+  --bg-secondary: #1e222a;
+  --bg-workspace: #1e222a;
+  
+  /* Text colors */
+  --text-primary: #e0e0e0;
+  --text-secondary: #714E36;
+  --text-inverse: #0f1117;
+  
+  /* Module-specific colors */
+  --penguin-bg: #1e222a;
+  --clock-bg: #1e222a;
+  --clock-text: #714E36;
+  --workspace-text: #e0e0e0;
+  --workspace-active-bg: #714E36;
+  --workspace-active-text: #0f1117;
+  --system-bg: #1e222a;
+  --system-text: #714E36;
+  --exit-bg: #714E36;
+  --exit-text: #0f1117;
+  --tooltip-bg: #0f1117;
+  --tooltip-text: #0f1117;
+  --tooltip-border: #714E36;
+}
+
+/* Main window */
+* {
+  font-family: "Fira Sans Semibold", "Font Awesome 6 Free", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+}
+
+window#waybar {
+  background-color: var(--bg-primary);
+  font-size: 14px;
+  border-radius: 0px;
+  margin: 0px;
+  padding: 0;
+}
+
+/* Penguin icon - leftmost */
+#custom-appmenu {
+  font-size: 24px;
+  background-color: var(--penguin-bg);
+  color: var(--accent-color);
+  padding: 0px 12px;
+  font-family: "FiraCode Nerd Font", "JetBrainsMono Nerd Font", "MesloLGS Nerd Font", sans-serif;
+}
+
+/* Clock - rightmost */
+#clock {
+  font-size: 14px;
+  background-color: var(--clock-bg);
+  color: var(--clock-text);
+  border-radius: 0px;
+  padding: 0px 8px;
+}
+
+/* Active window title */
+#window {
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--text-primary);
+  border-radius: 0px;
+  padding: 4px 12px;
+  background-color: var(--bg-primary);
+}
+
+/* Workspace container */
+#niri-workspaces {
+  background: var(--bg-workspace);
+  font-weight: bold;
+  border-radius: 0px;
+  font-size: 8px;
+  color: var(--workspace-text);
+}
+
+/* Individual workspace buttons */
+#niri-workspaces button {
+  border-radius: 0px;
+  font-size: 8px;
+  background: var(--bg-workspace);
+  color: var(--workspace-text);
+}
+
+/* Active workspace */
+#niri-workspaces button.active {
+  background: var(--workspace-active-bg);
+  color: var(--workspace-active-text);
+}
+
+/* Workspace hover */
+#niri-workspaces button:hover {
+  background: var(--accent-hover-color);
+  border-width: 0px;
+}
+
+/* Exit button - rightmost */
+#custom-exit {
+  background-color: var(--exit-bg);
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--exit-text);
+  padding: 0px 6px;
+  margin: 2px 2px 2px 0;
+}
+
+/* All system info modules */
+#backlight,
+#pulseaudio,
+#network,
+#bluetooth,
+#battery,
+#tray,
+#custom-updates,
+#custom-notification {
+  background-color: var(--system-bg);
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--system-text);
+  border-radius: 0px;
+  padding: 4px 10px;
+}
+
+/* Battery critical warning */
+#battery.critical:not(.charging) {
+  background-color: var(--accent-color);
+  color: var(--text-inverse);
+  animation: blink 0.5s linear infinite alternate;
+}
+
+/* Tooltip */
+tooltip {
+  border-radius: 12px;
+  background-color: var(--tooltip-bg);
+  color: var(--tooltip-text);
+  padding: 4px 8px;
+  border: 1px solid var(--tooltip-border-color);
+}
+
+/* Animation */
+@keyframes blink {
+  to {
+    background-color: var(--bg-primary);
+    color: var(--text-inverse);
+  }
+}
