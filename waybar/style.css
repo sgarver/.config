@@ -3,7 +3,7 @@
 @import url("colors.css");
 
 * {
-  font-family: "Fira Sans Semibold", "Font Awesome 6 Free", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+  font-family: "JetBrainsMono Nerd Font", "Font Awesome 6 Free", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
 }
 
 /* Main window */
@@ -20,10 +20,10 @@ window#waybar {
 #workspaces button:hover {
   padding: 0 16px;
   margin: 4px;
-  border: 1 solid @fg;
+  border: 1 solid @gray;
   border-radius: 0;
   background: transparent;
-  color: @fg;
+  color: @gray;
   box-shadow: none;
   text-shadow: none;
   font-weight: normal;
@@ -41,14 +41,13 @@ window#waybar {
   background-color: @bg;
   color: @purple;
   padding: 0px 12px;
-  font-family: "JetBrainsMono Nerd Font", "MesloLGS Nerd Font", sans-serif;
 }
 
 /* Clock - rightmost */
 #clock {
   font-size: 14px;
   background-color: @bg;
-  color: @fg;
+  color: @gray;
   border-radius: 0px;
   padding: 0px 8px;
 }
@@ -56,11 +55,11 @@ window#waybar {
 /* Active window title */
 #window {
   font-size: 14px;
-  font-weight: 800;
-  color: gray;
+  /*font-weight: 800;*/
+  color: @gray;
   border-radius: 0px;
   padding: 4px 12px;
-  background-color: #0f1117;
+  /*background-color: @gray;*/
 }
 
 /* Exit button */
@@ -85,7 +84,7 @@ window#waybar {
   background-color: @bg;
   font-size: 14px;
   font-weight: 800;
-  color: @fg;
+  color: @gray;
   border-radius: 0px;
   padding: 4px 10px;
 }
@@ -94,7 +93,7 @@ window#waybar {
 .tooltip {
   border-radius: 12px;
   background-color: @bg;
-  color: @fg;
+  color: @gray;
   padding: 4px 8px;
   border: 1px solid @bg;
 }
@@ -108,7 +107,7 @@ window#waybar {
 }
 
 #bluetooth {
-  color: @fg;
+  color: @gray;
 }
 
 #bluetooth.on,

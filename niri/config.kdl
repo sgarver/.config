@@ -272,6 +272,17 @@ binds {
         open-floating true
     }
 
+
+window-rule {
+    match app-id="steam"
+    open-floating true
+}
+window-rule {
+    match app-id="steam" title="Steam"
+    open-floating false
+}   
+
+
 // ────────────── Environment Variables ──────────────
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Miscellaneous#environment
 

@@ -22,6 +22,7 @@ function M.setup()
     "@function",
     "@variable",
     "Delimiter",
+    "Title",
   }
 
   for _, group in ipairs(fallback) do
