@@ -1,6 +1,10 @@
 // Niri configuration for CachyOS
 // For documentation and full reference, see: https://github.com/YaLTeR/niri/wiki
 
+
+
+include "theme.kdl"
+
 // ────────────── Input Configuration ──────────────
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Input
 
@@ -38,16 +42,24 @@ binds {
     MOD+SHIFT+ESCAPE                     { show-hotkey-overlay; }
 
     // ─── Applications ───
-    MOD+RETURN                          hotkey-overlay-title="Open Terminal: alacritty" { spawn-sh "alacritty"; }
-    MOD+SPACE                           hotkey-overlay-title="Open App Launcher: wofi" { spawn-sh "wofi"; }
-    MOD+B                               hotkey-overlay-title="Open Browser: firefox" { spawn-sh "firefox"; }
+    MOD+RETURN                          hotkey-overlay-title="Open Terminal: ghostty" { spawn-sh "ghostty"; }
+    //MOD+RETURN                          hotkey-overlay-title="Open Terminal: alacritty" { spawn-sh "alacritty"; }
+    //MOD+SPACE                           hotkey-overlay-title="Open App Launcher: wofi" { spawn-sh "wofi"; }
+    MOD+B                               hotkey-overlay-title="Open Browser: brave" { spawn-sh "brave"; }
     MOD+ALT+L                           hotkey-overlay-title="Lock Screen: swaylock" { spawn-sh "swaylock"; }
 
 
     MOD+SHIFT+B                         hotkey-overlay-title="Open TUI: bluetui" { spawn-sh "launch-bluetui"; }
     MOD+SHIFT+H                         hotkey-overlay-title="Open TUI: htop" { spawn-sh "launch-htop"; }
     MOD+SHIFT+F                         hotkey-overlay-title="Open TUI: felix" { spawn-sh "launch-felix"; }
-    
+    //MOD+SPACE                           hotkey-overlay-title="Open App Launcher: wofi" { spawn-sh "launch-apps"; }
+    MOD+SPACE                           hotkey-overlay-title="Open App Launcher: wofi" { spawn "fuzzel"; }
+   // in ~/.config/niri/config.kdl
+
+    //MOD+SPACE                           hotkey-overlay-title="Open TUI: Open Apps" { spawn-sh "launch-apps"; }
+
+    //MOD+SPACE { spawn "alacritty" "-e" "bash" "-c" "launch-apps" }
+
     // Please choose your own file manager
     MOD+E                             hotkey-overlay-title="File Manager: Nautilus" { spawn-sh "nautilus"; }
 
@@ -70,9 +82,9 @@ binds {
     MOD+H                               { focus-column-left; }
     MOD+RIGHT                           { focus-column-right; }
     MOD+L                               { focus-column-right; }
-    MOD+UP                              { focus-window-up; }
+    MOD+UP                              { focus-workspace-up; }
     MOD+K                               { focus-window-or-workspace-up; }
-    MOD+DOWN                            { focus-window-down; }
+    MOD+DOWN                            { focus-workspace-down; }
     MOD+J                               { focus-window-or-workspace-down; }
 
     MOD+CTRL+LEFT                       { move-column-left; }
@@ -176,7 +188,7 @@ binds {
     spawn-sh-at-startup "waybar" // Launch waybar
 
     prefer-no-csd // Disable program decorations
-    screenshot-path null // Disable screenshot saving
+    screenshot-path "/home/sdg/Pictures/screenshots" // Disable screenshot saving
 
 // ────────────── Layout Settings ──────────────
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Layout
@@ -190,13 +202,13 @@ binds {
             proportion 0.5
             proportion 0.66667
         }
-
+/*
         focus-ring {
             width 1
             active-color "#5f8787"
             inactive-color "#5f8787"
         }
-
+*/
         shadow {
             softness 30
             spread 5

@@ -1,0 +1,11 @@
+layout {
+    border {
+        width 1
+        active-color "${BLUE}"
+        inactive-color "${BG}"
+    }
+    focus-ring {
+        width 1
+        active-color "${BLUE}"
+    }
+}

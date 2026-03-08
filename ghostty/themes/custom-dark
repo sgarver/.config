@@ -1,0 +1,28 @@
+# Custom Dark Ghostty Theme
+
+palette = 0=#181818
+palette = 1=#ab4642
+palette = 2=#a1b56c
+palette = 3=#f7ca88
+palette = 4=#7cafc2
+palette = 5=#ba8baf
+palette = 6=#585858
+palette = 7=#d8d8d8
+
+palette = 8=#585858
+palette = 9=#ab4642
+palette = 10=#a1b56c
+palette = 11=#f7ca88
+palette = 12=#7cafc2
+palette = 13=#ba8baf
+palette = 14=#585858
+palette = 15=#ffffff
+
+background = #1c1c1c
+foreground = #cccccc
+
+cursor-color = #d8d8d8
+cursor-text = #181818
+
+selection-background = #585858
+selection-foreground = #181818

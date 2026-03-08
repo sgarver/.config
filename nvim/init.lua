@@ -3,34 +3,37 @@
 -- https://youtu.be/skW3clVG5Fo?si=v-8ITX_of5UykRH5
 
 vim.pack.add({
-    { src = "https://github.com/metalelf0/black-metal-theme-neovim" },
+    { src = "https://github.com/koron/vim-monochromenote" },
     { src = "https://github.com/stevearc/oil.nvim" },
     { src = "https://github.com/neovim/nvim-lspconfig" },
-    { src = "https://github.com/mason-org/mason.nvim" },
     { src = "https://github.com/nvim-mini/mini.pick" },
     { src = "https://github.com/nvim-mini/mini.diff" },
     { src = "https://github.com/NStefan002/screenkey.nvim" },
     { src = "https://github.com/folke/which-key.nvim" },
 })
 
+-- Neovim 0.11+ LSP config (no lspconfig.setup)
+vim.lsp.config("ocamllsp", {
+  cmd = { "ocamllsp" },
+  filetypes = { "ocaml", "ocamlinterface" },
+})
+
+vim.lsp.config("lua_ls", {
+  cmd = { "lua-language-server" },
+})
+
+vim.lsp.enable({ "lua_ls", "ocamllsp" })
+
+--vim.lsp.semantic_tokens.start = function() end
+
+
 -- theme & transparency
-vim.cmd.colorscheme("emperor") -- also good: sorbet, habermax, unokai
-vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
-vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "none" })
-vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-vim.api.nvim_set_hl(0, "FloatBorder", { bg = "none" })
-vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
+vim.cmd.colorscheme("theme") -- also good: sorbet, habermax, unokai
 vim.api.nvim_set_hl(0, "StatusLine", { bg = "none" })
-vim.api.nvim_set_hl(0, "StatusLineNC", { bg = "none" })
-vim.api.nvim_set_hl(0, "TabLine", { bg = "none" })
-vim.api.nvim_set_hl(0, "TabLineFill", { bg = "none", fg = "#767676" })
-vim.api.nvim_set_hl(0, "TabLineSel", { bg = "none" })
-vim.api.nvim_set_hl(0, "ColorColumn", { bg = "none" })
 
 -- Basic settings
 vim.opt.number = true         -- Line numbers
-vim.opt.relativenumber = true -- Relative line numbers
+vim.opt.relativenumber = false -- Relative line numbers
 vim.opt.cursorline = true     -- Highlight current line
 vim.opt.wrap = false          -- Don't wrap lines
 vim.opt.scrolloff = 10        -- Keep 10 lines above/below cursor
@@ -54,7 +57,7 @@ vim.opt.incsearch = true  -- Show matches as you type
 -- Visual settings
 vim.opt.termguicolors = true                      -- Enable 24-bit colors
 vim.opt.signcolumn = "yes"                        -- Always show sign column
-vim.opt.colorcolumn = "100"                       -- Show column at 100 characters
+--vim.opt.colorcolumn = "100"                       -- Show column at 100 characters
 vim.opt.showmatch = true                          -- Highlight matching brackets
 vim.opt.matchtime = 2                             -- How long to show matching bracket
 vim.opt.cmdheight = 1                             -- Command line height
@@ -66,7 +69,7 @@ vim.opt.winblend = 0                              -- Floating window transparenc
 vim.opt.conceallevel = 0                          -- Don't hide markup
 vim.opt.concealcursor = ""                        -- Don't hide cursor line markup
 vim.opt.lazyredraw = true                         -- Don't redraw during macros
-vim.opt.synmaxcol = 300                           -- Syntax highlighting limit
+--vim.opt.synmaxcol = 300                           -- Syntax highlighting limit
 vim.opt.fillchars = { eob = " " }                 -- Hide ~ on empty lines
 
 -- hide command section (toggle screenkey instead)
@@ -106,6 +109,10 @@ vim.opt.clipboard:append("unnamedplus") -- Use system clipboard
 vim.opt.modifiable = true               -- Allow buffer modifications
 vim.opt.encoding = "UTF-8"              -- Set encoding
 
+
+vim.opt.statusline = "%<%{expand('%:p:~')}%m%r%=%l:%c %p%%"
+
+
 -- keybinds
 vim.g.mapleader = " "
 
@@ -120,7 +127,7 @@ vim.keymap.set("v", "<", "<gv", { desc = "Indent left and reselect" })
 vim.keymap.set("v", ">", ">gv", { desc = "Indent right and reselect" })
 
 require "mini.pick".setup()
-vim.keymap.set('n', '<leader>f', ':Pick files<CR>')
+vim.keymap.set('n', '<leader>ff', ':Pick files<CR>')
 vim.keymap.set('n', '<leader>b', ':Pick buffers<CR>')
 vim.keymap.set('n', '<leader>h', ':Pick help<CR>')
 
@@ -215,13 +222,24 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-    group = augroup,
-    pattern = { "ocaml" },
-    callback = function()
-        vim.opt_local.tabstop = 2
-        vim.opt_local.shiftwidth = 2
-    end,
+  group = augroup,
+  pattern = { "ocaml" },
+  callback = function()
+    vim.opt_local.tabstop = 2
+    vim.opt_local.shiftwidth = 2
+    vim.opt_local.expandtab = true
+  end,
 })
+
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+  group = augroup,
+  pattern = { "*.ml", "*.mli" },
+  callback = function()
+    vim.lsp.buf.format({ async = false })
+  end,
+})
+
 
 -- Auto-close terminal when process exits
 vim.api.nvim_create_autocmd("TermClose", {
@@ -274,104 +292,6 @@ vim.opt.wildignorecase = true
 
 
 -- ============================================================================
--- FLOATING TERMINAL
--- ============================================================================
-
--- terminal
-local terminal_state = {
-    buf = nil,
-    win = nil,
-    is_open = false
-}
-
-local function FloatingTerminal()
-    -- If terminal is already open, close it (toggle behavior)
-    if terminal_state.is_open and vim.api.nvim_win_is_valid(terminal_state.win) then
-        vim.api.nvim_win_close(terminal_state.win, false)
-        terminal_state.is_open = false
-        return
-    end
-
-    -- Create buffer if it doesn't exist or is invalid
-    if not terminal_state.buf or not vim.api.nvim_buf_is_valid(terminal_state.buf) then
-        terminal_state.buf = vim.api.nvim_create_buf(false, true)
-        -- Set buffer options for better terminal experience
-        vim.bo[terminal_state.buf].bufhidden = 'hide'
-    end
-
-    -- Calculate window dimensions
-    local width = math.floor(vim.o.columns * 0.8)
-    local height = math.floor(vim.o.lines * 0.8)
-    local row = math.floor((vim.o.lines - height) / 2)
-    local col = math.floor((vim.o.columns - width) / 2)
-
-    -- Create the floating window
-    terminal_state.win = vim.api.nvim_open_win(terminal_state.buf, true, {
-        relative = 'editor',
-        width = width,
-        height = height,
-        row = row,
-        col = col,
-        style = 'minimal',
-        border = 'single',
-    })
-
-    -- Set transparency for the floating window
-    vim.wo[terminal_state.win].winblend = 0
-    vim.wo[terminal_state.win].winhighlight = 'Normal:FloatingTermNormal,FloatBorder:FloatingTermBorder'
-
-    -- Define highlight groups for transparency
-    vim.api.nvim_set_hl(0, "FloatingTermNormal", { bg = "none" })
-    vim.api.nvim_set_hl(0, "FloatingTermBorder", { bg = "none", })
-
-    -- Start terminal if not already running
-    local has_terminal = false
-    local lines = vim.api.nvim_buf_get_lines(terminal_state.buf, 0, -1, false)
-    for _, line in ipairs(lines) do
-        if line ~= "" then
-            has_terminal = true
-            break
-        end
-    end
-
-    if not has_terminal then
-        vim.fn.termopen(os.getenv("SHELL"))
-    end
-
-    terminal_state.is_open = true
-    vim.cmd("startinsert")
-
-    -- Set up auto-close on buffer leave
-    vim.api.nvim_create_autocmd("BufLeave", {
-        buffer = terminal_state.buf,
-        callback = function()
-            if terminal_state.is_open and vim.api.nvim_win_is_valid(terminal_state.win) then
-                vim.api.nvim_win_close(terminal_state.win, false)
-                terminal_state.is_open = false
-            end
-        end,
-        once = true
-    })
-end
-
--- Function to explicitly close the terminal
-local function CloseFloatingTerminal()
-    if terminal_state.is_open and vim.api.nvim_win_is_valid(terminal_state.win) then
-        vim.api.nvim_win_close(terminal_state.win, false)
-        terminal_state.is_open = false
-    end
-end
-
--- Key mappings
-vim.keymap.set("n", "<leader>t", FloatingTerminal, { noremap = true, silent = true, desc = "Toggle floating terminal" })
-vim.keymap.set("t", "<Esc>", function()
-    if terminal_state.is_open then
-        vim.api.nvim_win_close(terminal_state.win, false)
-        terminal_state.is_open = false
-    end
-end, { noremap = true, silent = true, desc = "Close floating terminal from terminal mode" })
-
--- ============================================================================
 -- LSP CONFIGURATION
 -- ============================================================================
 
@@ -401,7 +321,7 @@ local function setup_lsp()
         update_in_insert = false,
         severity_sort = true,
         float = {
-            border = 'rounded',
+            border = 'single',
             source = 'always',
             header = '',
             prefix = '',
@@ -427,7 +347,7 @@ local function setup_lsp()
             map('n', '<leader>rn', vim.lsp.buf.rename, "LSP: Rename", b)
             map('n', '<leader>ca', vim.lsp.buf.code_action, "LSP: Code action", b)
             map('n', 'gr', vim.lsp.buf.references, "LSP: References", b)
-            map('n', '<leader>f', function()
+            map('n', '<leader>fo', function()
                 vim.lsp.buf.format { async = true }
             end, "LSP: Format", b)
         end,
@@ -437,7 +357,7 @@ local function setup_lsp()
     local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
     function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
         opts = opts or {}
-        opts.border = opts.border or 'rounded'
+        opts.border = opts.border or 'single'
         return orig_util_open_floating_preview(contents, syntax, opts, ...)
     end
 end
@@ -449,3 +369,6 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 vim.keymap.set('n', '<leader>dl', vim.diagnostic.open_float, { desc = 'Show line diagnostics' })
 
 setup_lsp()
+
+
+

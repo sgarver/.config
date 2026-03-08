@@ -1,12 +1,14 @@
 /* Sophisticated Grayscale Theme - Hardcoded Hex Values */
 
+@import url("colors.css");
+
 * {
   font-family: "Fira Sans Semibold", "Font Awesome 6 Free", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
 }
 
 /* Main window */
 window#waybar {
-  background-color: #0f1117;
+  background-color: @bg;
   font-size: 16px;
   border-radius: 0px;
   margin: 0px;
@@ -18,10 +20,10 @@ window#waybar {
 #workspaces button:hover {
   padding: 0 16px;
   margin: 4px;
-  border: 1 solid dimgray;
+  border: 1 solid @fg;
   border-radius: 0;
   background: transparent;
-  color: dimgray;
+  color: @fg;
   box-shadow: none;
   text-shadow: none;
   font-weight: normal;
@@ -29,15 +31,15 @@ window#waybar {
 
 #workspaces button:hover,
 #workspaces button.focused {
-  color: #756482;
-  border: 1 solid #756482;
+  color: @purple;
+  border: 1 solid @purple;
 }
 
 /* Penguin icon - leftmost */
 #custom-appmenu {
   font-size: 24px;
-  background-color: #1a1a1a;
-  color: #756482;
+  background-color: @bg;
+  color: @purple;
   padding: 0px 12px;
   font-family: "JetBrainsMono Nerd Font", "MesloLGS Nerd Font", sans-serif;
 }
@@ -45,8 +47,8 @@ window#waybar {
 /* Clock - rightmost */
 #clock {
   font-size: 14px;
-  background-color: #1a1a1a;
-  color: dimgray;
+  background-color: @bg;
+  color: @fg;
   border-radius: 0px;
   padding: 0px 8px;
 }
@@ -63,7 +65,7 @@ window#waybar {
 
 /* Exit button */
 #custom-exit {
-  background-color: #756482;
+  background-color: @purple;
   font-size: 14px;
   font-weight: 800;
   color: #1a1a1a;
@@ -80,10 +82,10 @@ window#waybar {
 #tray,
 #custom-updates,
 #custom-notification {
-  background-color: #1a1a1a;
+  background-color: @bg;
   font-size: 14px;
   font-weight: 800;
-  color: dimgray;
+  color: @fg;
   border-radius: 0px;
   padding: 4px 10px;
 }
@@ -91,26 +93,26 @@ window#waybar {
 /* Tooltips */
 .tooltip {
   border-radius: 12px;
-  background-color: #1a1a1a;
-  color: dimgray;
+  background-color: @bg;
+  color: @fg;
   padding: 4px 8px;
-  border: 1px solid #888888;
+  border: 1px solid @bg;
 }
 
 /* Taskbar */
 #taskbar {
-  background-color: #1a1a1a;
+  background-color: @bg;
   margin: 0px;
   border-radius: 0px;
   font-weight: normal;
 }
 
 #bluetooth {
-  color: dimgray;
+  color: @fg;
 }
 
 #bluetooth.on,
 #bluetooth.connected {
-  color: #756482;
+  color: @purple;
 }
 

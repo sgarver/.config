@@ -26,48 +26,86 @@ multiplier = 3
 [colors]
 draw_bold_text_with_bright_colors = true
 
-# Emperor (black-metal-theme-neovim)
-# Pure black terminal variant
-# Comments describe the semantic role from the Neovim theme.
-# inspiration: https://github.com/metalelf0/black-metal-theme-neovim
-
+# inverted_dark
+# --------------------------------
+# Primary
+# --------------------------------
 [colors.primary]
-background = "#000000"  # true black background
-foreground = "#c1c1c1"  # main foreground (text)
+background= '0x1d1f21'
+foreground= '0xc5c8c6'
 
-[colors.cursor]
-text   = "#000000"      # cursor text (inverted)
-cursor = "#c1c1c1"      # cursor block color
-
-[colors.selection]
-text       = "#c1c1c1"  # selected text
-background = "#333333"  # selection background (soft dark gray)
-
-# -------------------
-# ANSI Normal Colors
-# -------------------
+# --------------------------------
+# ANSI Normal
+# --------------------------------
 [colors.normal]
-black   = "#111111"  # terminal black (near-black)
-red     = "#5f8787"  # diag_red (muted teal)
-green   = "#c1c1c1"  # property (light gray)
-yellow  = "#888888"  # function (mid gray)
-blue    = "#aaaaaa"  # constant (soft light gray)
-magenta = "#999999"  # keyword (desaturated gray)
-cyan    = "#756482"  # string (muted violet)
-white   = "#c1c1c1"  # default foreground
+black=   '0x282a2e'
+red=     '0xa54242'
+green=   '0x8c9440'
+yellow=  '0xde935f'
+blue=    '0x5f819d'
+magenta= '0x85678f'
+cyan=    '0x5e8d87'
+white=   '0x707880'
 
-# -------------------
-# ANSI Bright Colors
-# -------------------
+# --------------------------------
+# ANSI Bright
+# --------------------------------
 [colors.bright]
-black   = "#505050"  # comment (bright gray)
-red     = "#5f8787"  # same as normal red
-green   = "#c1c1c1"  # same as normal green
-yellow  = "#888888"  # same as normal yellow
-blue    = "#aaaaaa"  # same as normal blue
-magenta = "#A8A1DE"  # type (lavender accent)
-cyan    = "#756482"  # string accent
-white   = "#ffffff"  # pure white (maximum contrast)
+black=   '0x373b41'
+red=     '0xcc6666'
+green=   '0xb5bd68'
+yellow=  '0xf0c674'
+blue=    '0x81a2be'
+magenta= '0xb294bb'
+cyan=    '0x8abeb7'
+white=   '0xc5c8c6'
+
+
+## Emperor (black-metal-theme-neovim)
+## Pure black terminal variant
+## Comments describe the semantic role from the Neovim theme.
+## inspiration: https://github.com/metalelf0/black-metal-theme-neovim
+#
+#[colors.primary]
+#background = "#000000"  # true black background
+#foreground = "#c1c1c1"  # main foreground (text)
+#
+#[colors.cursor]
+#text   = "#000000"      # cursor text (inverted)
+#cursor = "#c1c1c1"      # cursor block color
+#
+#[colors.selection]
+#text       = "#c1c1c1"  # selected text
+#background = "#333333"  # selection background (soft dark gray)
+#
+## -------------------
+## ANSI Normal Colors
+## -------------------
+#[colors.normal]
+#black   = "#111111"  # terminal black (near-black)
+#red     = "#5f8787"  # diag_red (muted teal)
+#green   = "#c1c1c1"  # property (light gray)
+#yellow  = "#888888"  # function (mid gray)
+#blue    = "#aaaaaa"  # constant (soft light gray)
+#magenta = "#999999"  # keyword (desaturated gray)
+#cyan    = "#756482"  # string (muted violet)
+#white   = "#c1c1c1"  # default foreground
+#
+## -------------------
+## ANSI Bright Colors
+## -------------------
+#[colors.bright]
+#black   = "#505050"  # comment (bright gray)
+#red     = "#5f8787"  # same as normal red
+#green   = "#c1c1c1"  # same as normal green
+#yellow  = "#888888"  # same as normal yellow
+#blue    = "#aaaaaa"  # same as normal blue
+#magenta = "#A8A1DE"  # type (lavender accent)
+#cyan    = "#756482"  # string accent
+#white   = "#ffffff"  # pure white (maximum contrast)
+
+
+
 
 #[colors.primary]
 ##background = "#1d1f21"

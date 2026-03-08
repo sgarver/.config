@@ -1,0 +1,8 @@
+@define-color bg ${BG};
+@define-color fg ${FG};
+@define-color red ${RED};
+@define-color green ${GREEN};
+@define-color yellow ${YELLOW};
+@define-color blue ${BLUE};
+@define-color purple ${PURPLE};
+@define-color gray ${GRAY};
