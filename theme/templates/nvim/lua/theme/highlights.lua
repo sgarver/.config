@@ -33,8 +33,15 @@ function M.setup()
   set(0, "Number", { fg = c.purple })
   set(0, "Directory", { fg = c.blue })
   set(0, "Boolean", { fg = c.yellow })
-  --set(0, "Operator",  { fg = c.blue })
-  --set(0, "Function",  { fg = c.gray })
+  set(0, "Error", { bg = c.red })
+  set(0, "Question", { fg = c.green })
+
+  set(0, "NormalFloat", { fg = c.fg, bg = c.bg })
+  set(0, "FloatBorder", { fg = c.gray })
+  set(0, "Question", { fg = c.blue })
+  set(0, "Title", { fg = c.yellow })
+  set(0, "Directory", { fg = c.blue })
+
 
   -- LSP → Treesitter
   set(0, "@lsp.type.function", { link = "@function" })

@@ -60,5 +60,7 @@ window-padding-y = 10
 shell-integration-features = no-cursor
 cursor-style = underline
 
+background-opacity = .95
+
 config-file = theme.conf
 

@@ -26,6 +26,7 @@ envsubst < "$DIR/templates/ghostty.conf" > "$TARGET/ghostty/theme.conf"
 envsubst < "$DIR/templates/waybar.css" > "$TARGET/waybar/colors.css"
 envsubst < "$DIR/templates/bash.sh" > "$TARGET/bash/colors.sh"
 envsubst < "$DIR/templates/niri.kdl" > "$TARGET/niri/theme.kdl"
+envsubst < "$DIR/templates/fuzzel.ini" > "$TARGET/fuzzel/fuzzel.ini"
 
 # ensure directories exist
 mkdir -p "$TARGET/nvim/colors"
