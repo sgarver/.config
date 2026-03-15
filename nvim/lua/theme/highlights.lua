@@ -130,5 +130,8 @@ end
 set(0, "StatusLine", { fg = c.gray, italic = true })
 set(0, "StatusLineNC", { fg = c.gray, italic = true })
 
+-- LSP indicator (beaker icon)
+set(0, "StatusLineLsp", { fg = c.green })
+
 
 return M

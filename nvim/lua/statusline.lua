@@ -9,7 +9,9 @@ vim.opt.statusline = table.concat({
   "%m%r",                      -- flags
   "%=",                        -- right align
   "%{&filetype}",              -- filetype/language
+  "%#StatusLineLsp#",          -- switch to green
   "%{v:lua.LspIndicator()}",   -- lsp attached icon
+  "%*",                        -- reset highlight
   "  %2l:%-2c  %2p%% ",        -- location
 }, "")
 
