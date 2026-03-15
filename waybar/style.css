@@ -83,7 +83,7 @@ window#waybar {
 #custom-notification {
   background-color: @bg;
   font-size: 14px;
-  font-weight: 800;
+  font-weight: normal;
   color: @gray;
   border-radius: 0px;
   padding: 4px 10px;

@@ -5,7 +5,7 @@ local M = {}
 
 function M.setup()
   -- core UI
-  set(0, "Normal", { fg = c.fg, bg = "NONE" })
+  set(0, "Normal", { fg = c.fg, bg = c.bg })
 
   -- fallback syntax groups → Normal
   local fallback = {
@@ -129,9 +129,6 @@ end
 -- status line
 set(0, "StatusLine", { fg = c.gray, italic = true })
 set(0, "StatusLineNC", { fg = c.gray, italic = true })
-
--- LSP indicator (beaker icon)
-set(0, "StatusLineLsp", { fg = c.green })
 
 
 return M

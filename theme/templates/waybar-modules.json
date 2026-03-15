@@ -97,7 +97,7 @@
 
   // Clock - time portion styled with foreground color
   "clock": {
-    "format": "{:%m/%d <span color='#aaaaaa'>%H:%M</span>}  ",
+    "format": "{:%m/%d <span color='${FG}'>%H:%M</span>}  ",
     "tooltip-format": "<tt>{calendar}</tt>"
   },
 
