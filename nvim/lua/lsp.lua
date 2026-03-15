@@ -21,12 +21,14 @@ vim.lsp.enable({ "lua_ls" })
 vim.lsp.config("ocamllsp", {
   cmd = { "ocamllsp" },
   filetypes = { "ocaml", "dune" },
-  root_markers = { "dune-project" },   -- Neovim handles upward search automatically
+  root_markers = { "dune-project" }, -- Neovim handles upward search automatically
 })
 
 vim.lsp.enable({ "ocamllsp" })
 
 vim.lsp.enable 'bashls'
+
+vim.lsp.enable 'gleam'
 
 -- Put this in your config after lsp is set up (e.g. after vim.lsp.enable or lspconfig setup)
 local lsp = vim.lsp
@@ -88,4 +90,3 @@ vim.api.nvim_create_autocmd("LspAttach", {
     -- map("n", "<leader>ch", lsp.buf.call_hierarchy,    "Call Hierarchy")
   end,
 })
-
