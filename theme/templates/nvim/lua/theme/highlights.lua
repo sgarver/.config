@@ -5,7 +5,7 @@ local M = {}
 
 function M.setup()
   -- core UI
-  set(0, "Normal", { fg = c.fg, bg = c.bg })
+  set(0, "Normal", { fg = c.fg, bg = "NONE" })
 
   -- fallback syntax groups → Normal
   local fallback = {
