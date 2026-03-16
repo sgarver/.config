@@ -32,6 +32,8 @@ vim.lsp.enable 'gleam'
 
 vim.lsp.enable 'pyright'
 
+vim.lsp.enable 'marksman'
+
 -- Put this in your config after lsp is set up (e.g. after vim.lsp.enable or lspconfig setup)
 local lsp = vim.lsp
 local buf = vim.lsp.buf

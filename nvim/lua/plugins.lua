@@ -6,7 +6,7 @@ return {
     lazy = false,
     config = function()
       require('nvim-treesitter.config').setup({
-        ensure_installed = { 'lua', 'vim', 'vimdoc', 'bash', 'ocaml' },
+        ensure_installed = { 'lua', 'vim', 'vimdoc', 'bash', 'ocaml', 'markdown' },
         highlight = { enable = true },
         indent = { enable = true },
       })
