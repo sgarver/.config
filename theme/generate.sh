@@ -22,16 +22,23 @@ export GRAY=$(get gray)
 
 echo "Generating themes..."
 
+# ensure directories exist
+mkdir -p "$TARGET/ghostty"
+mkdir -p "$TARGET/waybar"
+mkdir -p "$TARGET/bash"
+mkdir -p "$TARGET/zsh"
+mkdir -p "$TARGET/niri"
+mkdir -p "$TARGET/fuzzel"
+mkdir -p "$TARGET/nvim/colors"
+mkdir -p "$TARGET/nvim/lua/theme"
+
 envsubst < "$DIR/templates/ghostty.conf" > "$TARGET/ghostty/theme.conf"
 envsubst < "$DIR/templates/waybar.css" > "$TARGET/waybar/colors.css"
 envsubst < "$DIR/templates/waybar-modules.json" > "$TARGET/waybar/modules.json"
 envsubst < "$DIR/templates/bash.sh" > "$TARGET/bash/colors.sh"
+cp "$DIR/templates/zsh.sh" "$TARGET/zsh/colors.zsh"
 envsubst < "$DIR/templates/niri.kdl" > "$TARGET/niri/theme.kdl"
 envsubst < "$DIR/templates/fuzzel.ini" > "$TARGET/fuzzel/fuzzel.ini"
-
-# ensure directories exist
-mkdir -p "$TARGET/nvim/colors"
-mkdir -p "$TARGET/nvim/lua/theme"
 
 envsubst < "$DIR/templates/nvim/colors/theme.lua" > "$TARGET/nvim/colors/theme.lua"
 envsubst < "$DIR/templates/nvim/lua/theme/palette.lua" > "$TARGET/nvim/lua/theme/palette.lua"

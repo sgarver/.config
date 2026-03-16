@@ -29,8 +29,17 @@ function M.setup()
 
   -- explicit styles
   set(0, "Comment", { fg = c.gray, italic = true })
+  set(0, "Keyword", { fg = c.green })
   set(0, "String", { fg = c.blue })
-  set(0, "Number", { fg = c.purple })
+  set(0, "Number", { fg = c.green })
+
+  -- Generic keyword groups (apply to all languages)
+  set(0, "Conditional", { fg = c.green })  -- if, else, switch, case
+  set(0, "Repeat", { fg = c.green })  -- for, while, loop
+  set(0, "Exception", { fg = c.green })  -- try, catch, throw
+  set(0, "Include", { fg = c.green })  -- import, include
+  set(0, "Operator", { fg = c.green })  -- +, -, *, /, =, etc.
+  set(0, "Statement", { fg = c.green })  -- let, mut, const
   set(0, "Directory", { fg = c.blue })
   set(0, "Boolean", { fg = c.yellow })
   set(0, "Error", { bg = c.red })
@@ -73,7 +82,7 @@ function M.setup()
   set(0, "PmenuSbar", { bg = c.bg })
   set(0, "PmenuThumb", { bg = c.gray })
 
-  set(0, "PmenuMatch", { fg = c.purple })
+  set(0, "PmenuMatch", { fg = c.green })
   set(0, "PmenuMatchSel", { fg = c.yellow, bold = true })
 
   -- Floating windows (affects :LspInfo, hover, diagnostics float, etc.)
@@ -124,11 +133,25 @@ function M.setup()
   set(0, "LineNr", {
     fg = c.gray,
   })
+
+  -- Quickfix / Location list
+  set(0, "QuickFixLine", {
+    bg = c.bg,
+    fg = c.fg,
+    bold = true,
+  })
+
+  set(0, "qfFileName", { fg = c.blue })
+  set(0, "qfLineNr", { fg = c.gray })
+  set(0, "qfSeparator", { fg = c.gray })
 end
 
 -- status line
 set(0, "StatusLine", { fg = c.gray, italic = true })
 set(0, "StatusLineNC", { fg = c.gray, italic = true })
+
+-- LSP indicator (beaker icon)
+set(0, "StatusLineLsp", { fg = c.green })
 
 
 return M

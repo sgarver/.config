@@ -30,6 +30,8 @@ vim.lsp.enable 'bashls'
 
 vim.lsp.enable 'gleam'
 
+vim.lsp.enable 'pyright'
+
 -- Put this in your config after lsp is set up (e.g. after vim.lsp.enable or lspconfig setup)
 local lsp = vim.lsp
 local buf = vim.lsp.buf
