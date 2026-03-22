@@ -26,4 +26,5 @@ require("keymaps")
 require("lsp")
 require("autocommands")
 require("statusline")
+require("focus").setup()
 

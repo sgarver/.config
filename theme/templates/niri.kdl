@@ -6,6 +6,6 @@ layout {
     }
     focus-ring {
         width 1
-        active-color "${BLUE}"
+        active-color "${PURPLE}"
     }
 }

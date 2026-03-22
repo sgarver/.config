@@ -8,8 +8,8 @@ M.colors = {
   yellow = "#f7ca88",
   green  = "#a1b56c",
   blue   = "#7cafc2",
-  purple = "#ba8baf",
-  gray   = "#585858",
+  purple = "#a78bfa",
+  gray   = "#646669",
 }
 
 return M

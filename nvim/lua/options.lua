@@ -4,15 +4,6 @@
 vim.g.mapleader = " "
 
 -- ============================================================================
--- ENVIRONMENT / OPAM PATH
--- ============================================================================
--- Make sure Neovim sees your OPAM binaries
-local opam_bin = os.getenv("HOME") .. "/.opam/default/bin"
-if not string.find(vim.env.PATH, opam_bin, 1, true) then
-    vim.env.PATH = opam_bin .. ":" .. vim.env.PATH
-end
-
--- ============================================================================
 -- BASIC SETTINGS
 -- ============================================================================
 vim.opt.number = true
@@ -103,3 +94,4 @@ vim.opt.wildmenu = true
 vim.opt.wildmode = "longest:full,full"
 vim.opt.wildignore:append({ "*.o", "*.obj", "*.pyc", "*.class", "*.jar" })
 vim.opt.wildignorecase = true
+

@@ -1,5 +1,5 @@
 
-theme = "tomorrow_dark"
+theme = "base16_terminal"
 
 [keys.normal]
 C-g = [":new", ":insert-output lazygit", ":buffer-close!", ":redraw"]

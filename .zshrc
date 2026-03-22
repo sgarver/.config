@@ -1,5 +1,6 @@
 # Load oh-my-zsh
 export ZSH="/usr/share/oh-my-zsh"
+source "$ZSH/oh-my-zsh.sh"
 
 # Use empty theme (we'll use custom prompt)
 ZSH_THEME=""
@@ -9,6 +10,10 @@ plugins=(git docker npm)
 
 # Load your custom colors
 source ~/.config/zsh/colors.zsh
+
+# Explicitly set PS1 to ensure it overrides oh-my-zsh
+PS1="
+   ${GRAY}%~${BLUE}\$(parse_git_branch) ${PURPLE}»${RESET} "
 
 # Load shared aliases
 if [ -f ~/.config/shell/aliases.sh ]; then

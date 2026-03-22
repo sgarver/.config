@@ -1,13 +1,13 @@
 setopt PROMPT_SUBST
-autoload -Uz colors && colors
 
-RESET="%{${reset_color}%}"
-RED="%{$fg[red]%}"
-GREEN="%{$fg[green]%}"
-YELLOW="%{$fg[yellow]%}"
-BLUE="%{$fg[blue]%}"
-PURPLE="%{$fg[magenta]%}"
-WHITE="%{$fg[white]%}"
+RESET="%F{default}"
+RED="%F{203}"
+GREEN="%F{107}"
+YELLOW="%F{221}"
+BLUE="%F{109}"
+PURPLE="%F{141}"
+WHITE="%F{188}"
+GRAY="%F{240}"
 
 PS1="
-   ${WHITE}%~${BLUE}\$(parse_git_branch) ${PURPLE}»${RESET} "
+   ${GRAY}%~${BLUE}\$(parse_git_branch) ${PURPLE}»${RESET} "
