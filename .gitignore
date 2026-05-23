@@ -1,0 +1,9 @@
+
+/*
+!.gitignore
+!bash/
+!ghostty/
+!helix/
+!nvim/
+.zshrc
+

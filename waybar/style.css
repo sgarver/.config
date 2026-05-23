@@ -9,7 +9,7 @@
 /* Main window */
 window#waybar {
   background-color: @bg;
-  font-size: 16px;
+  font-size: 18px;
   border-radius: 0px;
   margin: 0px;
   padding: 0;
@@ -45,7 +45,7 @@ window#waybar {
 
 /* Clock - rightmost */
 #clock {
-  font-size: 14px;
+  font-size: 18px;
   background-color: @bg;
   color: @gray;
   border-radius: 0px;
@@ -54,7 +54,7 @@ window#waybar {
 
 /* Active window title */
 #window {
-  font-size: 14px;
+  font-size: 18px;
   /*font-weight: 800;*/
   color: @gray;
   border-radius: 0px;
@@ -65,7 +65,7 @@ window#waybar {
 /* Exit button */
 #custom-exit {
   background-color: @purple;
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 800;
   color: #1a1a1a;
   padding: 0px 6px;
@@ -82,7 +82,7 @@ window#waybar {
 #custom-updates,
 #custom-notification {
   background-color: @bg;
-  font-size: 14px;
+  font-size: 18px;
   font-weight: normal;
   color: @gray;
   border-radius: 0px;
@@ -114,4 +114,3 @@ window#waybar {
 #bluetooth.connected {
   color: @purple;
 }
-

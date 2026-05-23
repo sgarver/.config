@@ -2,6 +2,14 @@
 export ZSH="/usr/share/oh-my-zsh"
 source "$ZSH/oh-my-zsh.sh"
 
+# Fetch a random joke once per session (runs after oh-my-zsh loads)
+_random_joke() {
+  tmpfile=$(mktemp)
+  sh /home/sdg/code/bashtest/random_joke.sh > "$tmpfile" && cat "$tmpfile"
+  rm -f "$tmpfile"
+}
+_random_joke
+
 # Use empty theme (we'll use custom prompt)
 ZSH_THEME=""
 
@@ -17,7 +25,7 @@ PS1="
 
 # Load shared aliases
 if [ -f ~/.config/shell/aliases.sh ]; then
-    source ~/.config/shell/aliases.sh
+  source ~/.config/shell/aliases.sh
 fi
 
 # Custom prompt (keep exactly as-is)
@@ -44,7 +52,21 @@ parse_git_branch() {
 # LM Studio
 export PATH="$PATH:/home/sdg/.lmstudio/bin"
 
+export PATH="$PATH:/home/sdg/.local/bin"
+export PATH="$PATH:/home/sdg/bin"
+export PATH="$PATH:/home/sdg/bin/vital"
+
 # NVM
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
+export PATH="$PATH:$GHCUP_INSTALL_BASE_PREFIX/.ghcup/bin"
+#. "$HOME/.ghcup/env"
+
+[ -f "/home/sdg/.ghcup/env" ] && . "/home/sdg/.ghcup/env" # ghcup-env
+
+# alias
+alias rmf='rm -rf'
+alias lmm='LM-Studio-0.4.12-1-x64.AppImage'
+alias replay='cd ~/code/replay'

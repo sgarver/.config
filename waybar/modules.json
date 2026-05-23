@@ -3,7 +3,6 @@
   "niri/workspaces": {
     "on-click": "activate"
   },
-
   // Taskbar
   "wlr/taskbar": {
     "format": "{icon}",
@@ -11,7 +10,11 @@
     "tooltip-format": "{title}",
     "on-click": "activate",
     "on-click-middle": "close",
-    "ignore-list": ["Alacritty", "kitty", "ghostty"],
+    "ignore-list": [
+      "Alacritty",
+      "kitty",
+      "ghostty"
+    ],
     "app_ids-mapping": {
       "firefoxdeveloperedition": "firefox-developer-edition"
     },
@@ -20,7 +23,6 @@
       "Foot Server": "Terminal"
     }
   },
-
   // niri Window
   "niri/window": {
     "format": "{}",
@@ -33,18 +35,15 @@
     },
     "separate-outputs": true
   },
-
   // Empty
   "custom/empty": {
     "format": ""
   },
-
   // Tools
   "custom/tools": {
     "format": "",
     "tooltip-format": "Tools"
   },
-
   // Updates Count
   "custom/updates": {
     "format": "{} {icon}",
@@ -56,28 +55,24 @@
     "exec-if": "which waybar-module-pacman-updates",
     "exec": "waybar-module-pacman-updates --interval-seconds 5 --network-interval-seconds 300"
   },
-
   // wofi Application Launcher
   "custom/appmenu": {
     "format": "󰣇",
     "on-click": "sleep 0.2;niri msg action spawn -- wofi",
     "tooltip-format": "Left: Open the application launcher\nRight: Show all keybindings"
   },
-
   // wofi Application Launcher
   "custom/appmenuicon": {
     "format": "",
-    "on-click": "sleep 0.2;niri msg action spawn -- wofi",
+    "on-click": "sleep 0.2;niri msg action spawn -- fuzzel",
     "tooltip-format": "Left: Open the application launcher\nRight: Show all keybindings"
   },
-
   // Power Menu
   "custom/exit": {
     "format": " 󰐥 ",
     "on-click": "~/.config/waybar/scripts/power-menu.sh",
     "tooltip-format": "Power Menu"
   },
-
   // Keyboard State
   "keyboard-state": {
     "numlock": true,
@@ -88,23 +83,19 @@
       "unlocked": ""
     }
   },
-
   // System tray
   "tray": {
     "icon-size": 21,
     "spacing": 10
   },
-
   // Clock - time portion styled with foreground color
   "clock": {
     "format": "{:%m/%d <span color='#aaaaaa'>%I:%M %p</span>}  ",
     "tooltip-format": "<tt>{calendar}</tt>"
   },
-
   "niri/language": {
     "format": "/ K {short}"
   },
-
   // Battery
   "battery": {
     "states": {
@@ -115,9 +106,14 @@
     "format-charging": "  {capacity}%",
     "format-plugged": "  {capacity}%",
     "format-alt": "{icon}  {time}",
-    "format-icons": [" ", " ", " ", " ", " "]
+    "format-icons": [
+      " ",
+      " ",
+      " ",
+      " ",
+      " "
+    ]
   },
-
   // Pulseaudio
   "pulseaudio": {
     "format": "{icon}  {volume}%",
@@ -129,20 +125,17 @@
     "format-icons": {},
     "on-click": "pavucontrol"
   },
-
   // Bluetooth
   "bluetooth": {
     "format": "",
     "on-click": "~/.local/bin/launch-bluetui"
   },
-
   // Other
   "user": {
     "format": "{user}",
     "interval": 60,
     "icon": false
   },
-
   // backlight
   "backlight": {
     "format": "{icon} {percent}%",

@@ -1,9 +1,18 @@
 
-theme = "base16_terminal"
+theme = "amberwood"
 
 [keys.normal]
 C-g = [":new", ":insert-output lazygit", ":buffer-close!", ":redraw"]
 space.B = ":echo %sh{git blame -L %{cursor_line},+1 %{buffer_name}}"
 space.P = ":sh dirname %% | wl-copy && echo 'PWD copied to clipboard'"
 space.R = ":config-reload"
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"   
+
+#[editor]
+# auto-format = false
+
 
