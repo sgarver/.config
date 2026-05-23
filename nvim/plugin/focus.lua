@@ -1,1 +1,0 @@
-/home/sdg/code/focus/focus.nvim/plugin/focus.lua
