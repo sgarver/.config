@@ -1,8 +1,7 @@
 # PLUGIN INSTALL / SYNC
 
-This setup uses Vim's native package system:
+This setup uses Vim's native package system located here: 
+`~/.config/vim/pack/plugins/start/`
 
-`cd ~/.config/vim/pack/plugins/start/`
-
-Run bootstrap script to install `~/.config/vim/plugins.sh`
+Run bootstrap script to install `~/.config/vim/pack/plugins.sh`
 
