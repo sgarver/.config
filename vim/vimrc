@@ -1,0 +1,67 @@
+
+set nocompatible
+filetype plugin indent on
+syntax on
+
+" XDG runtime
+set runtimepath^=~/.config/vim
+set runtimepath+=~/.config/vim/after
+
+" UI
+set number
+set cursorline
+set showcmd
+set laststatus=2
+
+" Indentation
+set expandtab
+set shiftwidth=4
+set softtabstop=4
+set autoindent
+
+" Searching
+set incsearch
+set hlsearch
+set ignorecase
+set smartcase
+
+" Behavior
+set hidden
+set noswapfile
+set backspace=indent,eol,start
+
+" Persistent Undo
+set undofile
+set undodir=~/.config/vim/undo
+
+" Theme (ensure installed separately)
+colorscheme catppuccin
+
+" Better defaults (replaces Pathogen-era "sensible")
+if empty(glob('~/.config/vim/pack/plugins/start/vim-sensible'))
+  echom "vim-sensible not installed"
+endif
+
+" reset background to match terminal
+"hi Normal ctermbg=NONE guibg=NONE
+
+" Force transparent background after theme loads
+augroup TransparentBG
+    autocmd!
+    autocmd VimEnter,ColorScheme * hi Normal guibg=NONE ctermbg=NONE
+    autocmd VimEnter,ColorScheme * hi NormalNC guibg=NONE ctermbg=NONE
+    autocmd VimEnter,ColorScheme * hi SignColumn guibg=NONE ctermbg=NONE
+    autocmd VimEnter,ColorScheme * hi LineNr guibg=NONE ctermbg=NONE
+    autocmd VimEnter,ColorScheme * hi EndOfBuffer guibg=NONE ctermbg=NONE
+augroup END
+
+
+let mapleader = " "
+
+let $FZF_DEFAULT_OPTS = '--exact'
+nnoremap <leader>ff :Files<CR>
+nnoremap <leader>fg :Rg<CR>
+nnoremap <leader>fb :Buffers<CR>
+
+
+

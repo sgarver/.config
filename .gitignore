@@ -1,10 +1,57 @@
+# =========================
+# DENY EVERYTHING BY DEFAULT
+# =========================
+*
 
-/*
+# =========================
+# CORE REPOSITORY FILES
+# =========================
 !.gitignore
-!bash/
-!ghostty/
-!helix/
-!nvim/
 !README.md
+
+# allow top-level dotfiles
 !.zshrc
+
+# =========================
+# CONFIG DIRECTORIES (WHITELISTED)
+# IMPORTANT: must allow dir + contents
+# =========================
+
+!bash/
+!bash/**
+!ghostty/
+!ghostty/**
+!helix/
+!helix/**
+!nvim/
+!nvim/**
+!vim/
+!vim/**
+
+# skip plugins
+vim/pack/plugins/**
+!vim/pack/README.md
+vim/undo/**
+!vim/undo/README.md
+
+# =========================
+# OPTIONAL SYSTEM / NOISE (SAFE ADDITIONS)
+# =========================
+
+# OS metadata
+.DS_Store
+Thumbs.db
+
+# logs
+*.log
+
+# temp files
+*.tmp
+*.temp
+
+# editor backups (rare but safe)
+*.bak
+*.orig
+*~
+.netrwhist
 
